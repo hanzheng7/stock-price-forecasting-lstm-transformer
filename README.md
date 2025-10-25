@@ -69,14 +69,15 @@ LSTM captures temporal dependencies through gated recurrent units, effectively m
   - 2 encoder and 2 decoder layers  
   - `d_model = 128`, `nhead = 8`, `dropout = 0.1`  
   - Feed-forward network dimension: 256  
-- **Loss:** MSE  
+- **Loss:** Mean Squared Error (MSE)  
 - **Optimizer:** Adam (`lr = 1e-4`) with `ReduceLROnPlateau` scheduler  
 - **Regularization:** Gradient clipping (max_norm = 1.0)  
-- **Epochs:** 50  
+- **Epochs:** 200 (with Early Stopping)  
 
-Transformers leverage **self-attention mechanisms** to learn global temporal relationships, handling long-range dependencies better than LSTM.
+The Transformer model was trained for up to 200 epochs with **early stopping** to prevent overfitting.  
+Training stopped automatically once the validation loss failed to improve for **15 consecutive epochs**.  
+This setup balances convergence stability and generalization performance, ensuring the model captures both short- and long-term temporal patterns.
 
----
 
 ## 3. Results
 
@@ -125,26 +126,13 @@ scikit-learn
 
 ## 6. Project Structure
 ```text
-csi300-prediction/
+stock-price-forecasting-lstm-transformer/
 │
-├── data/
-│   └── csi300.csv
-│
-├── models/
-│   ├── lstm_csi300_model.keras
-│   └── transformer_csi300_model.pth
-│
-├── notebook/
-│   └── CSI300_LSTM_Transformer.ipynb
-│
-├── results/
-│   ├── lstm_prediction.png
-│   ├── transformer_prediction.png
-│   └── metrics_comparison.csv
-│
-└── README.md
+├── csi300.ipynb        # Main Jupyter Notebook (LSTM + Transformer)
+├── csi300.csv          # Dataset
+├── requirements.txt           # Dependency list
+└── README.md                  # Project documentation
 ```
-
 ---
 
 ## 7. Future Work
@@ -161,4 +149,6 @@ csi300-prediction/
 **Han Zheng**  
 Master of Information, Human-Centered Data Science  
 University of Toronto  
-Bachelor of Science in Statistics, The O
+Bachelor of Science in Statistics, The Ohio State University 
+
+📫 [LinkedIn](https://www.linkedin.com/in/hanzheng6277/) | [GitHub](https://github.com/hanzheng7)
