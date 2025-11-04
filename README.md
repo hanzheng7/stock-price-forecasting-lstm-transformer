@@ -130,8 +130,8 @@ stock-price-forecasting-lstm-transformer/
 │
 ├── csi300.ipynb        # Main Jupyter Notebook (LSTM + Transformer)
 ├── csi300.csv          # Dataset
-├── requirements.txt           # Dependency list
-└── README.md                  # Project documentation
+├── requirements.txt    # Dependency list
+└── README.md           # Project documentation
 ```
 ---
 
